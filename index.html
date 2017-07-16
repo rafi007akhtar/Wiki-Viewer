@@ -6,20 +6,70 @@
         <meta charset="utf-8">
         
         <title>Wiki Viewer</title>
-        
+
         <!-- CSS LIBRARIES REQUIRED -->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" href="http://cdn.jsdelivr.net/fontawesome/4.7.0/css/font-awesome.min.css">
         
         <!-- STYLINGS -->
-        <style></style>
+        <style>
+            body {
+                /*background-color: rgb(170, 57, 57)*/
+            }
+            
+            #s-text {
+                border-top-left-radius: 14px;
+                border-bottom-left-radius: 14px;
+                border-top-right-radius: 14px;
+                border-bottom-right-radius: 14px;
+                background-image: url('https://cdn1.iconfinder.com/data/icons/hawcons/32/698956-icon-111-search-128.png');
+                background-size: 30px;
+                background-repeat: no-repeat;
+                background-position: 10px;
+                padding: 10px 20px 10px 40px;
+            }
+        </style>
+
     </head>
     
     <body>
-        This is where the page would go
+        <div class="container">
+            <br>
+            <!-- PUT THE SEARCH FORM -->
+            <div class="row">
+                <input type="text" placeholder="Enter search keywords" id="s-text" class="form-control col-xs-8">
+            </div>
+        </div>
         
         <!-- JS LIBRARIES REQUIRED -->
-        <script type="text/javascript" src="https://cdn.jsdelivr.net/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/3.2.1/jquery.min.js"></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/bootstrap/3.3.7/js/bootstrap.min.js"></script>        
+        
+        <!-- SCRIPTINGS -->
+        <script>
+            var form = $("#form");
+            var stxt = $("#search-text");
+            //console.log(stxt);
+            
+            // SET THE WIKI URL
+            //var wikiurl = "https://en.wikipedia.org/w/api.php?action=opensearch&search="+$("#search-text").val()+"&format=json&callback=wikiCallback";
+            
+            var stxt = $("#s-text");
+            /* Using the keypress event for the first time 
+                Input: function with parameter as the key pressed on the object
+                key.which converts it to its ASCII
+                The function does the events to be carried out on pressing the key
+            */
+            stxt.keypress(function(key) {
+                if(key.which === 13) // 13 is the ASCII of carriage return (the Enter key)
+                {
+                    console.log("yo")
+                }
+            })
+            
+
+            
+        </script>
     </body>
     
 </html>
