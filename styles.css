@@ -1,0 +1,26 @@
+body {
+    /*background-color: rgb(170, 57, 57)*/
+    background-image: url(images/wiki-back-2.jpg);
+    background-size: cover;
+}
+img {
+    display: inline;
+}
+
+#s-text {
+    border-top-left-radius: 14px;
+    border-bottom-left-radius: 14px;
+    border-top-right-radius: 14px;
+    border-bottom-right-radius: 14px;
+    background-image: url('https://cdn1.iconfinder.com/data/icons/hawcons/32/698956-icon-111-search-128.png');
+    background-size: 30px;
+    background-repeat: no-repeat;
+    background-position: 10px;
+    padding: 10px 20px 10px 40px;
+}
+
+.elem {
+    height: 300px;
+    background-color: rgba(255, 44, 0, 0.5);
+    color: white;
+}
