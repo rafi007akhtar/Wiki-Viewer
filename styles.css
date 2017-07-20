@@ -5,14 +5,11 @@ body {
     background-image: url(images/wiki-back-2.jpg);
     background-size: cover;
 }
-img {
-    display: inline;
-}
 h3 {
     font-family: "Cinzel";
     border-bottom: 1px solid;
-    color: black;
     font-weight: 600;
+    color: white
 }
 p {
     font-family: "Titillium Web";
@@ -20,10 +17,6 @@ p {
     font-size: 1.2em;
     padding: 7px;
     color: black;
-}
-button {
-    float: bottom;
-    margin-bottom: 3px;
 }
 
 #s-text {
@@ -42,10 +35,6 @@ button {
 }
 
 .elem {
-    background-color: rgba(255, 44, 0, 0.5);
-    color: white;
     height: 200px;
     overflow-y: auto;
 }
-
-

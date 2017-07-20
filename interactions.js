@@ -1,5 +1,4 @@
 var form = $("#form");
-//console.log(stxt);
 
 var stxt = $("#s-text");
 /* Using the keypress event for the first time 
@@ -24,12 +23,7 @@ stxt.keypress(function(key) {
             success: function(data) {
                 // clear results from before
                 res.html("");
-
-                console.log(data);
                 
-                var line = $("<div></div>");
-                console.log(line);
-
                 var head = data[1];
                 var para = data[2];
                 var link = data[3];
@@ -42,7 +36,7 @@ stxt.keypress(function(key) {
                 for (i = 0; i < l; i++) {
                     var ele = $("<div>", {"class": "thumbnail col-xs-12 col-md-4 text-center elem"});
                     ele.append("<h3>" + head[i] + " </h3>" + " <p> " + para[i] + "</p>");
-                    ele.append("<a href='"+ link[i] +"' target='_blank'> <button class='btn btn-primary'> Take me there </button></a>")
+                    ele.append("<a href='"+ link[i] +"' target='_blank'> <button class='btn btn-primary'> Take me there </button></a>");
 
                     var num = Math.floor(Math.random() * 10) % 3;
                     if(num%3 === 0)
@@ -52,15 +46,12 @@ stxt.keypress(function(key) {
                     else
                         ele.css("background-color", col2);
 
-                    //ele.slideUp();
                     res.append(ele);
                     ele.hide();
                     ele.fadeIn(1000);
+                    };
 
                 }
-
-
-            }
         });
     }
-})
+});
