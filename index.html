@@ -17,18 +17,46 @@
     </head>
     
     <body>        
-        <div class="container-fluid">
+        <div class="container-fluid" id="s-area">
             <!-- PUT THE SEARCH INPUT AREA -->
             <div class="row text-center">
-                <input type="text" placeholder="Enter search keywords" id="s-text" class="form-control">
+                <input type="text" placeholder="Enter search keywords (or press enter for a random search)" id="s-text" class="form-control">
             </div>
         </div>
         
         <br> <br> <br>
         
-        <div class="container">
+        <div class="container" id="no-res"></div>
+        
+        <div class="container" id="s-res">
             <!-- APPEND THE SEARCH RESULTS DOWN HERE -->
             <div class="row" id="results"></div>
+        </div>
+        
+        <div class="foot" id="foot">
+            <div class="text-center">&copy; Website made with <i class="fa fa-heart" style="color: darkgreen"></i> by <a href="https://www.freecodecamp.com/rafi007akhtar" target="_blank">Md Rafi Akhtar </a> </div>
+            <div class="foot col-md-4">
+                This site uses
+                <ul type="square">
+                    <a href="https://pages.github.com/" target="_blank"><li>GitHub Pages Service</li></a>
+                    <a href="https://www.mediawiki.org/wiki/API:Main_page" target="_blank"><li>MediaWiki API</li></a>
+                    <a href="https://fonts.google.com/" target="_blank"><li>Google Fonts</li></a>
+                </ul>
+            </div>
+            <div class="foot col-md-4 text-center">
+                <br>
+                <i class="fa fa-free-code-camp"></i> Site made as a <a href="https://freecodecamp.com" target="_blank">Free Code Camp's</a> Front-End Curriculim project
+                <br>
+                <i class="fa fa-github-square"></i> <a href="https://github.com/rafi007akhtar/wiki-viewer" target="_blank">Contribute</a> to this project on GitHub
+            </div>
+            <div class="footcol-md-4 text-right">
+                Contact me:<br>
+                <a href="https://github.com/rafi007akhtar/" target="_blank"><i class="fa fa-github"></i></a><br> 
+                <a href="https://www.facebook.com/rafi007akhtar" target="_blank"><i class="fa fa-facebook-square"></i></a><br> 
+                <a href="https://www.linkedin.com/in/md-rafi-akhtar-46283424/" target="_blank"><i class="fa fa-linkedin"></i></a><br> 
+                <a href="mailto:alimdrafi@gmail.com" target="_blank"><i class="fa fa-envelope"></i></a>
+                
+            </div>
         </div>
         
         <!-- JS LIBRARIES REQUIRED -->

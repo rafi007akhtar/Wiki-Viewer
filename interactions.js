@@ -1,5 +1,7 @@
 var form = $("#form");
 var sWidth = screen.width;
+var foot = $("#foot");
+foot.hide();
 
 var stxt = $("#s-text");
 /* Using the keypress event for the first time 
@@ -12,8 +14,11 @@ stxt.keypress(function (key) {
     {
         var stxt = $("#s-text").val();
         res = $("#results");
-        if(stxt.trim() === "")
+        if(stxt.trim() === "") {
+            var url = "https://en.wikipedia.org/wiki/Special:Random";
+            $("<a>").attr("href", url).attr("target", "_blank")[0].click();
             return;
+        }
 
         // SET THE WIKI URL
         var wikiurl = "https://en.wikipedia.org/w/api.php?action=opensearch&search=" + stxt + "&format=json&callback=wikiCallback";
@@ -24,6 +29,7 @@ stxt.keypress(function (key) {
             success: function(data) {
                 // clear results from before
                 res.html("");
+                $("#no-res").html("");
                 
                 var head = data[1];
                 var para = data[2];
@@ -35,23 +41,32 @@ stxt.keypress(function (key) {
 
                 l = head.length;
                 for (i = 0; i < l; i++) {
+                    if(i === 0) {
+                        var stxt2 = head[i];
+                        if(stxt2.toLowerCase() != stxt.toLowerCase()) {
+                            console.log(head[i] + " is not " + stxt);
+                            $("#no-res").append("Showing results for: <a href='" +link[i] + "' target='_blank' style='color: white; text-decoration: underline'>" + head[i] + "</a> <br>&nbsp;");
+                        }
+                    }
+                    
                     var ele = $("<div>", {"class": "col-xs-12 col-md-4 text-center elem"});
         
                     ele.append("<h3>" + head[i] + " </h3>" + " <p> " + para[i] + "</p>");
                     ele.append("<a href='"+ link[i] +"' target='_blank'> <button class='btn btn-primary'> Show me more </button></a>");
                     
                     if (i === 0) {
-                        ele.removeClass("col-xs-12 col-md-4");
-                        ele.addClass("col-xs-12");
+                        ele.removeClass("col-md-4");
                         ele.css("height", "auto");
-                        ele.css("overflow", "visible")
-                        ele.append("<br> &nbsp;");
+                        ele.css("overflow", "visible");
+                        ele.append("<br>&nbsp;")
                     }
 
                     res.append(ele);
                     ele.hide();
                     ele.fadeIn(1000);
                     };
+                
+                foot.show();
 
                 }
         });
