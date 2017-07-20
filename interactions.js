@@ -1,4 +1,5 @@
 var form = $("#form");
+var sWidth = screen.width;
 
 var stxt = $("#s-text");
 /* Using the keypress event for the first time 
@@ -6,8 +7,8 @@ var stxt = $("#s-text");
     key.which converts it to its ASCII
     The function does the events to be carried out on pressing the key
 */
-stxt.keypress(function(key) {
-    if(key.which === 13) // 13 is the ASCII of carriage return (the Enter key)
+stxt.keypress(function (key) {
+    if (key.which === 13) // 13 is the ASCII of carriage return (the Enter key)
     {
         var stxt = $("#s-text").val();
         res = $("#results");
@@ -15,7 +16,7 @@ stxt.keypress(function(key) {
             return;
 
         // SET THE WIKI URL
-        var wikiurl = "https://en.wikipedia.org/w/api.php?action=opensearch&search="+stxt+"&format=json&callback=wikiCallback";
+        var wikiurl = "https://en.wikipedia.org/w/api.php?action=opensearch&search=" + stxt + "&format=json&callback=wikiCallback";
         //console.log(wikiurl);
         $.ajax({
             url: wikiurl,
@@ -34,17 +35,18 @@ stxt.keypress(function(key) {
 
                 l = head.length;
                 for (i = 0; i < l; i++) {
-                    var ele = $("<div>", {"class": "thumbnail col-xs-12 col-md-4 text-center elem"});
+                    var ele = $("<div>", {"class": "col-xs-12 col-md-4 text-center elem"});
+        
                     ele.append("<h3>" + head[i] + " </h3>" + " <p> " + para[i] + "</p>");
-                    ele.append("<a href='"+ link[i] +"' target='_blank'> <button class='btn btn-primary'> Take me there </button></a>");
-
-                    var num = Math.floor(Math.random() * 10) % 3;
-                    if(num%3 === 0)
-                        ele.css("background-color", col0);
-                    else if(num%3 === 1)
-                        ele.css("background-color", col1);
-                    else
-                        ele.css("background-color", col2);
+                    ele.append("<a href='"+ link[i] +"' target='_blank'> <button class='btn btn-primary'> Show me more </button></a>");
+                    
+                    if (i === 0) {
+                        ele.removeClass("col-xs-12 col-md-4");
+                        ele.addClass("col-xs-12");
+                        ele.css("height", "auto");
+                        ele.css("overflow", "visible")
+                        ele.append("<br> &nbsp;");
+                    }
 
                     res.append(ele);
                     ele.hide();
@@ -55,3 +57,4 @@ stxt.keypress(function(key) {
         });
     }
 });
+
