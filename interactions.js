@@ -26,6 +26,9 @@ stxt.keypress(function(key) {
                 res.html("");
 
                 console.log(data);
+                
+                var line = $("<div></div>");
+                console.log(line);
 
                 var head = data[1];
                 var para = data[2];
@@ -38,7 +41,8 @@ stxt.keypress(function(key) {
                 l = head.length;
                 for (i = 0; i < l; i++) {
                     var ele = $("<div>", {"class": "thumbnail col-xs-12 col-md-4 text-center elem"});
-                    ele.append("<h3> <u>" + head[i] + "</u> </h3> <p> " + para[i] + "</p>");
+                    ele.append("<h3>" + head[i] + " </h3>" + " <p> " + para[i] + "</p>");
+                    ele.append("<a href='"+ link[i] +"' target='_blank'> <button class='btn btn-primary'> Take me there </button></a>")
 
                     var num = Math.floor(Math.random() * 10) % 3;
                     if(num%3 === 0)
