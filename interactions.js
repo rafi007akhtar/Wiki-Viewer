@@ -11,7 +11,7 @@ stxt.keypress(function(key) {
     {
         var stxt = $("#s-text").val();
         res = $("#results");
-        if(stxt === "")
+        if(stxt.trim() === "")
             return;
 
         // SET THE WIKI URL

@@ -38,3 +38,18 @@ p {
     height: 200px;
     overflow-y: auto;
 }
+
+.elem::-webkit-scrollbar {
+    width: 7px;
+}
+.elem::-webkit-scrollbar:hover {
+    width: 12px;
+}
+.elem::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 3px rgba(0,0,0,0.3);
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
+}
